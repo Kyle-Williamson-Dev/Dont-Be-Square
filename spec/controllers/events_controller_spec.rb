@@ -14,4 +14,14 @@ RSpec.describe EventsController, type: :controller do
       expect(response).to have_http_status(:success)
     end    
   end
+
+  describe "events#create action" do
+    it "should successfully create a new event in our database" do
+      post :create, params: { event: { description: 'Dungeons & Dragons Campaign Run' } }
+      expect(response).to redirect_to root_path
+
+      event = Event.last
+      expect(event.description).to eq('Dungeons & Dragons Campaign Run')
+    end
+  end
 end
