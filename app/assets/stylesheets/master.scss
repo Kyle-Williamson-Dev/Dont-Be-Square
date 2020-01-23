@@ -1,5 +1,12 @@
 @import "bootstrap";
 
 .hero {
-  background: image_url("Redrocks.jpg");
+  background: image_url("Redrocks.jpg") no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  object-fit: cover;
+  height: 500px;
+  text-align: center;
 }
