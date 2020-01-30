@@ -1,12 +1,64 @@
 @import "bootstrap";
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 
-.hero {
-  background: image_url("Redrocks.jpg") no-repeat center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  object-fit: cover;
-  height: 500px;
+// .hero {
+//   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+//     url("Redrocks.jpg") no-repeat center center;
+//   -webkit-background-size: cover;
+//   -moz-background-size: cover;
+//   -o-background-size: cover;
+//   background-size: cover;
+//   height: 370px;
+// }
+
+// .hero-text {
+//   color: white;
+//   text-align: center;
+//   margin-top: 100px;
+// }
+
+// .hero-text h1 {
+//   // font-family: "Helvetica Neue", Arial, Helvetica;
+//   // font-weight: 100;
+//   <%=link_to'Find an event', '#', class: "btn btn-success" %>;
+// }
+
+// .hero {
+//   text-align: center;
+//   width: 100%;
+// }
+
+body {
+  font-family: "Montserrat", Montserrat, sans-serif;
+}
+
+.hero h2 {
+  text-align: center;
+}
+
+.navbar {
+  font-family: "Montserrat", Montserrat, sans-serif;
+  background-color: #c7c7c7;
+  height: 55px;
+}
+
+.navbar li {
+  display: inline;
+  width: 100px;
+  padding-right: 30px;
+  font-size: 25px;
+  text-decoration: none;
+}
+
+.navbarlinks {
+  display: inline-block;
+  font-size: 25px;
+}
+
+.navbar li a:hover {
+  text-decoration: none;
+}
+
+.eventsearch {
   text-align: center;
 }
