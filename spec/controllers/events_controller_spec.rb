@@ -1,6 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe EventsController, type: :controller do
+  describe "events#show action" do
+    it "should successfully show the page if the event if found" do
+      event = FactoryBot.create(:event)
+      get :show, params: { id: event:id }
+      expect(response).to have_http_status(:success)
+    end
+
+    it "should return a 404 error if the event is not found" do
+      get :show, params: { id: 'TACOCAT' }
+      expect(response).to have_http_status(:not_found)
+    end
+  end
+
   describe "events#index action" do
     it "should successfully show the page" do
       get :index
@@ -15,7 +28,7 @@ RSpec.describe EventsController, type: :controller do
     end
 
     it "should successfully show the new form" do
-      user = Factorybot.create(:user)
+      user = FactoryBot.create(:user)
       sign_in user
 
       get :new
@@ -26,7 +39,7 @@ RSpec.describe EventsController, type: :controller do
   describe "events#create action" do
 
     it "should require users to be logged in" do
-      post :create, params { event: { description: 'Play Halo' } }
+      post :create, params: { event: { description: 'Play Halo' } }
     end
 
     it "should successfully create a new event in our database" do

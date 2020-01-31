@@ -1,8 +1,15 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :show]
 
   def new
     @event = Event.new
+  end
+
+  def show
+    @event = Event.find_by_id(params[:id])
+    if @event.blank?
+      render plain: 'Not Found :(', status: :not_found
+    end
   end
 
   def index
