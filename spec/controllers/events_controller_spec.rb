@@ -9,12 +9,13 @@ RSpec.describe EventsController, type: :controller do
   end
 
   describe "events#new action" do
+    it "should require users to be logged in" do
+      get :new
+      expect(response).to redirect_to new_user_session_path
+    end
+
     it "should successfully show the new form" do
-      user = User.create(
-        email:                  'dontbesquareapp@gmail.com',
-        password:               'Password123',
-        password_confirmation:  'Password123'
-      )
+      user = Factorybot.create(:user)
       sign_in user
 
       get :new
@@ -23,12 +24,14 @@ RSpec.describe EventsController, type: :controller do
   end
 
   describe "events#create action" do
+
+    it "should require users to be logged in" do
+      post :create, params { event: { description: 'Play Halo' } }
+    end
+
     it "should successfully create a new event in our database" do
-        user = User.create(
-          email:                  'dontbesquareapp@gmail.com',
-          password:               'Password123',
-          password_confirmation:  'Password123'
-        )
+        user = FactoryBot.create(:user)
+        sign_in user
 
         post :create, params: { event: { description: 'Dungeons & Dragons Campaign Run' } }
         expect(response).to redirect_to root_path
@@ -37,14 +40,9 @@ RSpec.describe EventsController, type: :controller do
         expect(event.description).to eq('Dungeons & Dragons Campaign Run')
         expect(event.user).to eq(user)
       end
-    end
 
     it "should properly deal with validation errors" do
-      user = User.create(
-        email:                  'dontbesquareapp@gmail.com',
-        password:               'Password123',
-        password_confirmation:  'Password123'
-      )
+      user = FactoryBot.create(:user)
       sign_in user
 
       event_count = Event.count
@@ -52,4 +50,6 @@ RSpec.describe EventsController, type: :controller do
       expect(response).to have_http_status(:unprocessable_entity)
       expect(Event.count).to eq Event.count
     end
+
   end
+end
