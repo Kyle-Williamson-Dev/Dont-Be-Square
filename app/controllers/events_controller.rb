@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :show]
+  before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update, :destroy]
 
   def new
     @event = Event.new
@@ -9,6 +9,25 @@ class EventsController < ApplicationController
     @event = Event.find_by_id(params[:id])
     if @event.blank?
       render plain: 'Not Found :(', status: :not_found
+    end
+  end
+
+  def edit
+    @event = Event.find_by_id(params[:id])
+    return render_not_found if @event.blank?
+    return render_not_found(:forbidden) if @event.user != current_user
+  end
+   
+  def update
+    @event = Event.find_by_id(params[:id])
+    return render_not_found if @event.blank?
+    return render_not_found(:forbidden) if @event.user != current_user
+
+    @event.update_attributes(event_params)
+    if @event.valid?
+      redirect_to root_path
+    else
+      return render :edit, status: :unprocessable_entity
     end
   end
 
@@ -22,6 +41,14 @@ class EventsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @event = Event.find_by_id(params[:id])
+    return render_not_found if @event.blank?
+    return render_not_found(:forbidden) if @event.user != current_user
+    @event.destroy
+    redirect_to root_path
   end
 
   private

@@ -9,58 +9,55 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
- <%# <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <body>
+
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">Nomster</a>
+  <%= link_to "Don't Be Square!", root_path, class: 'navber-brand' %>
+  
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-md-0">
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <%# <%= link_to new_event_path, class: 'nav-link' do %> %>
+          <i class="fa fa-plus"></i>
+          New Event
+        <%# <% end %> %>
       </li>
     </ul>
-  </div>
-</nav> %>
-
-  <body>
-
-    <nav class="navbar">
-      <ul class="navbarlinks">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Browse</a></li>
-      </ul>
-      <ul class="titlelink">
-        <li><a href="#">Don't Be Square!</a></li>
-      </ul>
-    </nav>
-
-    <div class = "signinsignout">
-      <% if current_user %>
-        You're signed in as <%= current_user.email %>
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+    <ul class="navbar-nav">
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%# <%= link_to 'My Profile', user_path(current_user), class: 'nav-link' %> %>
+        </li>
+        <li class="nav-item">
+          <%# <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %> %>
+        </li>
       <% else %>
-        <%= link_to "Sign in", new_user_session_path %>
-        <%= link_to "Don't be square, sign up", new_user_registration_path %>
+        <li class="nav-item">
+          <%# <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %> %>
+        </li>
+        <li class="nav-item">
+          <%# <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %> %>
+        </li>
       <% end %>
-      <% if notice.present? %>
-        <p class="alert"><%= notice %></p>
-      <% end %>
-
-      <% if alert.present? %>
-        <p class="alert"><%= alert %></p>
-      <% end %>
-
-      <% if notice.present? %>
-        <p class="alert alert-info"><%= notice %></p>
-      <% end %>
-      <% if alert.present? %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
-    </div> 
+    </ul>
+  </div>
+</nav>
 
     <%= yield %>
+
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-6 footer-blurb">
+            Proudly built by <a href="https://github.com/Spartan-626">Kyle Williamson</a><br />
+          </div>
+        </div>
+      </div>
+    </div>
 
   </body>
 </html>
