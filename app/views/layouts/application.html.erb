@@ -23,7 +23,7 @@
           <% if user_signed_in? %>
             <%= link_to new_event_path, class: 'nav-link' do %>
               <i class="fa fa-plus"></i>
-              New Event
+              <%= link_to 'New Event', new_event_path, class: 'nav-link' %>
             <% end %>
           <% end %>
         </li>
@@ -32,7 +32,7 @@
             <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
           <% end %>
         </li>
-        <li class="signup">
+        <li class=>
           <% if user_signed_in? != true %>
             <%= link_to "Sign up!" %>
           <% end %>
