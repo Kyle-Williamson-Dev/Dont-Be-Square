@@ -11,7 +11,7 @@
 
   <header>
     <nav class="topnav">
-    <h1>Don't be Square</h1>
+    <h1>Don't Be Square</h1>
       <ul class="topnavlinks">
         <li>
           <%= link_to 'Home', root_path, class: 'nav-link' %>
@@ -30,6 +30,11 @@
         <li>
           <% if user_signed_in? != true %>
             <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
+          <% end %>
+        </li>
+        <li class="signup">
+          <% if user_signed_in? != true %>
+            <%= link_to "Sign up!" %>
           <% end %>
         </li>
         <li>
