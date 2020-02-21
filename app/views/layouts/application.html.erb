@@ -48,36 +48,6 @@
 
   <body>
 
-  <!-- <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-  <%= link_to "Don't Be Square!", root_path, class: 'navber-brand' %>
-  
-    <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-      <li class="nav-item">
-        <% if user_signed_in? %>
-          <%= link_to new_event_path, class: 'nav-link' do %>
-            <i class="fa fa-plus"></i>
-            New Event
-          <% end %>
-        <% end %>
-      </li>
-    </ul>
-    <ul class="navbar-nav">
-      <% if user_signed_in? %>
-        <li class="signout">
-          <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-        </li>
-      <% else %>
-        <li class="signin">
-          <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
-        </li>
-        <li class="signup">
-          <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
-        </li>
-      <% end %>
-    </ul>
-    
-  </nav> -->
-
     <%= yield %>
 
     <div class="footer">

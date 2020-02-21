@@ -17,7 +17,15 @@ body {
   font-family: "Montserrat", Montserrat, sans-serif;
 }
 
-h2 {
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./redrocks.jpg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
   text-align: center;
 }
 
@@ -47,21 +55,14 @@ h2 {
 }
 
 .section1 {
-}
-
-.section1 h2 {
-  text-align: center;
-}
-
-.eventsearch {
-  text-align: center;
+  color: white;
 }
 
 .button {
   background-color: #008cba;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 7px 16px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
