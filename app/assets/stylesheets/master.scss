@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap");
 
 * {
   box-sizing: border-box;
@@ -10,11 +11,10 @@
 header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 body {
-  font-family: "Montserrat", Montserrat, sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .hero-image {
@@ -27,18 +27,13 @@ body {
 
 .hero-text {
   text-align: center;
+  color: white;
 }
 
-.topnav {
-  font-family: "Montserrat", Montserrat, sans-serif;
+nav {
+  font-family: "Roboto", Roboto, sans-serif;
   background-color: #c7c7c7;
   height: 55px;
-}
-
-.topnav h1 {
-  float: left;
-  font-size: 30px;
-  margin: 10px 10px;
 }
 
 .topnavlinks {
@@ -48,14 +43,11 @@ body {
 
 .topnavlinks li {
   display: inline-block;
+  padding: 0px 20px;
 }
 
 .navbar li a:hover {
   text-decoration: none;
-}
-
-.section1 {
-  color: white;
 }
 
 .button {
@@ -69,4 +61,9 @@ body {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.button:hover {
+  background-color: rgba(0, 136, 169, 0.8);
 }
