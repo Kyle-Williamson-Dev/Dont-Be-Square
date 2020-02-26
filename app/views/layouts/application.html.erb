@@ -10,7 +10,7 @@
   </head>
 
   <header>
-    <nav>
+    <!--<nav>
       <ul>
         <li>
           <%= link_to 'Home', root_path, class: 'nav-link' %>
@@ -42,7 +42,28 @@
           <% end %>
         </li>
       </ul>
+    </nav>-->
+
+    <nav>
+      <ul class="menu">
+        <li class="logo"><a href="#">Don't Be Square</a></li>
+        <li class="item"><a href="#">Home</a></li>
+        <li class="item"><a href="#">Browse</a></li>
+        <li class="item"><a href="#">FAQ</a></li>
+        <li class="item"><a href="#">Contact Us</a></li>
+        </li>
+        <li class="signIn">
+          <% if user_signed_in? != true %>
+            <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
+          <% end %>
+        </li>
+        <li class="item button secondary"><a href="#">Sign Up</a></li>
+        <li class="toggle"><span class="bars"></span></li>
+      </ul>
     </nav>
+    <main>
+        <a href="https://github.com/Spartan-626" style="position:fixed;bottom:0;color:teal;display:block;text-align:center;font-size:1em">Github</a>
+    </main>
   </header>
 
   <body>
