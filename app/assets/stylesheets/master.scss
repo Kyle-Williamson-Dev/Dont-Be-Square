@@ -26,7 +26,6 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
 }
 
 .menu li {
@@ -36,6 +35,13 @@ a:hover {
 
 .menu li a {
   display: block;
+  color: white;
+}
+
+.menu li a:hover {
+  transition: color 0.3s ease;
+  color: #f7773b;
+  text-decoration: none;
 }
 
 .logo a {
